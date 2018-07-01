@@ -4,7 +4,7 @@ let router = express.Router();
 // CRUD
 user.post('/users', function(req, res)
 {
-    res.send('you got it');
+    res.send('What is on your mind!');
 });
 
 user.get('/users', function(req, res)

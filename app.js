@@ -6,6 +6,13 @@ let Sequelize = require('Sequelize');
 let app = require ('express');
 let passport = require('passport')
 
+let Post =[
+  {ID: Int, AutoIncremented,
+    authorID: Int,
+    message: '',
+    timeStamp: true}
+]
+
 // connected to db
 let sequelize = new Sequelize('Music', 'frostim007', null, {
     host: 'localhost',
