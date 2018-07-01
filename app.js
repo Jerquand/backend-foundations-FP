@@ -36,7 +36,7 @@ app.delete('/', function(req, res)
 
 //   define schema
   const Post = sequelize.define(
-    'Post',
+    "Post",
     {
       PortId: {
 
@@ -52,7 +52,7 @@ app.delete('/', function(req, res)
     }
   );
   const User = sequelize.define(
-    'Users',
+    "Users",
     {
       UserId: {
 
@@ -68,10 +68,10 @@ app.delete('/', function(req, res)
     }
   );
 
-  Artist.find({ where: { ArtistId: 75 } }).then(artists => {
+  Post.find({ where: { ArtistId: 75 } }).then(artists => {
     console.log(artists);
   });
-  Album.find({ where: { AlbumId: 75 } }).then(artists => {
+  User.find({ where: { AlbumId: 75 } }).then(artists => {
     console.log(artists);
   });
 
