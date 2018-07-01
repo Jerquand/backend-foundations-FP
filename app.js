@@ -35,10 +35,11 @@ app.delete('/', function(req, res)
 
 
 //   define schema
-  const Artist = sequelize.define(
-    'Artist',
+  const Post = sequelize.define(
+    'Post',
     {
-      ArtistId: {
+      PortId: {
+
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
@@ -47,13 +48,14 @@ app.delete('/', function(req, res)
     },
     {
       freezeTableName: true,
-      timestamps: false
+      timestamps: true
     }
   );
-  const Album = sequelize.define(
-    'Album',
+  const User = sequelize.define(
+    'Users',
     {
-      AlbumId: {
+      UserId: {
+
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
