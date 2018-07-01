@@ -10,6 +10,28 @@ let sequelize = new Sequelize('Music', 'frostim007', null, {
     dialect: 'sqlite3',
     storage: './Chinook_Sqlite_AutoIncrementPKs.sqlite'
   });
+// CRUD
+app.post('/', function(req, res)
+{
+    res.send('you got it');
+});
+
+app.get('/', function(req, res)
+{
+    res.send('you got it');
+});
+
+app.put('/', function(req, res)
+{
+    res.send('you got it');
+});
+
+app.delete('/', function(req, res)
+{
+    res.send('you got it');
+});
+
+
 
 //   define schema
   const Artist = sequelize.define(
@@ -49,9 +71,10 @@ let sequelize = new Sequelize('Music', 'frostim007', null, {
   Album.find({ where: { AlbumId: 75 } }).then(artists => {
     console.log(artists);
   });
-//   run server to port 5000
-  app.listen(5000, () => {
-    console.log ('running on 5000')
+
+//   run server to port 4000
+  app.listen(4000, () => {
+    console.log ('running on 4000')
 
   })
 db.close();

@@ -1,6 +1,27 @@
 let express = require('express');
 let router = express.Router();
 
+// CRUD
+app.post('/', function(req, res)
+{
+    res.send('you got it');
+});
+
+app.get('/', function(req, res)
+{
+    res.send('you got it');
+});
+
+app.put('/', function(req, res)
+{
+    res.send('you got it');
+});
+
+app.delete('/', function(req, res)
+{
+    res.send('you got it');
+});
+
 let users =[
     {name:'Quan', id: '1'},
     {name:'Ben', id:'2'}
