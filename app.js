@@ -3,6 +3,7 @@ let sqlite3 = require('sqlite3')
 let router = express.Router();
 let db = new sqlite3.Database('./Chinook_Sqlite_AutoIncrementPKs.sqlite');
 let Sequelize = require('Sequelize');
+let app = require ('express');
 
 // connected to db
 let sequelize = new Sequelize('Music', 'frostim007', null, {

@@ -23,8 +23,7 @@ app.delete('/', function(req, res)
 });
 
 let users =[
-    {name:'Quan', id: '1'},
-    {name:'Ben', id:'2'}
+    {ID: '', firstName: '', lastName: '', username: '',password: ''}
 ]
 
 router.get('/',(req,res)=> {
