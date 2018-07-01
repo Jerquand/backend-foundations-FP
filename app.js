@@ -5,6 +5,8 @@ let db = new sqlite3.Database('./Chinook_Sqlite_AutoIncrementPKs.sqlite');
 let Sequelize = require('Sequelize');
 let app = require ('express');
 let passport = require('passport')
+let bodyParser = require ('body-parser')
+app.use(bodyParser.json());
 
 let Post =[
   {ID: Int, AutoIncremented,

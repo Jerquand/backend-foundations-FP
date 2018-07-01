@@ -1,15 +1,30 @@
 let express = require('express');
 let router = express.Router();
+let user = require('./user')
 
-// CRUD
-user.post('/users', function(req, res)
-{
-    res.send('What is on your mind!');
+
+// API CRUD
+user.post('/users', (req, res) => {
+    user.create(
+        {Name: req.body.name}
+    )
+    res.sendStatus(200)
 });
 
-user.get('/users', function(req, res)
-{
-    res.send('you got it');
+user.get('/users', (req, res) => {
+    user.findAll().then(users =>{
+        res.json(user)
+    });
+});
+
+user.get('/users/:id', (req, res) => {
+    user.find({
+        where:{
+            UserId: req.params.id
+        }
+    }).then(users =>{
+        res.json(user)
+    });
 });
 
 user.put('/users', function(req, res)
