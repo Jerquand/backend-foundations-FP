@@ -82,5 +82,5 @@ app.delete('/', function(req, res)
   })
 db.close();
 module.exports = Post;
-module.exports = User;
+module.exports = Users;
 module.exports = router;
