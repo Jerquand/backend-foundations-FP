@@ -54,7 +54,7 @@ app.delete('/', function(req, res)
         autoIncrement: true,
         primaryKey: true
       },
-      Name: Sequelize.STRING
+      message: Sequelize.STRING
     },
     {
       freezeTableName: true,
@@ -69,7 +69,10 @@ app.delete('/', function(req, res)
         autoIncrement: true,
         primaryKey: true
       },
-      Name: Sequelize.STRING
+      firstName: Sequelize.STRING,
+      lastName: Sequelize.STRING,
+      userName: Sequelize.STRING,
+      password: Sequelize.STRING
     },
     {
       freezeTableName: true,
@@ -81,7 +84,7 @@ app.delete('/', function(req, res)
   });
 
   passport.deserializeUser((id, done) => {
-    User.findAll(
+    user.findAll(
       {
         where: {
           userId: id
