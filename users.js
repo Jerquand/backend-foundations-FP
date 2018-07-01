@@ -2,35 +2,39 @@ let express = require('express');
 let router = express.Router();
 
 // CRUD
-app.post('/', function(req, res)
+user.post('/users', function(req, res)
+{
+    res.send('What is on your mind!');
+});
+
+user.get('/users', function(req, res)
 {
     res.send('you got it');
 });
 
-app.get('/', function(req, res)
+user.put('/users', function(req, res)
 {
     res.send('you got it');
 });
 
-app.put('/', function(req, res)
-{
-    res.send('you got it');
-});
-
-app.delete('/', function(req, res)
+user.delete('/users', function(req, res)
 {
     res.send('you got it');
 });
 
 let users =[
-    {ID: '', firstName: '', lastName: '', username: '',password: ''}
+    {ID: '',
+     firstName: '',
+     lastName: '',
+     username: '',
+     password: ''}
 ]
 
-router.get('/',(req,res)=> {
+router.get('/users',(req,res)=> {
     res.send(users);
 })
 
-router.post('/',(req, res)=>{
+router.post('/users',(req, res)=>{
     users.push(req.body);
     res.send(users);
 })
