@@ -81,6 +81,6 @@ app.delete('/', function(req, res)
 
   })
 db.close();
-module.exports = Artist;
-module.exports = Album;
+module.exports = Post;
+module.exports = User;
 module.exports = router;
