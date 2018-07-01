@@ -92,11 +92,11 @@ app.delete('/', function(req, res)
     );
   });
 
-  Post.find({ where: { ArtistId: 75 } }).then(artists => {
-    console.log(artists);
+  Post.find({ where: { UserId: '' } }).then(User => {
+    console.log(user);
   });
-  User.find({ where: { AlbumId: 75 } }).then(artists => {
-    console.log(artists);
+  User.find({ where: { UserId: '' } }).then(User => {
+    console.log(user);
   });
 
 //   run server to port 4000
