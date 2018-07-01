@@ -4,6 +4,7 @@ let router = express.Router();
 let db = new sqlite3.Database('./Chinook_Sqlite_AutoIncrementPKs.sqlite');
 let Sequelize = require('Sequelize');
 let app = require ('express');
+let passport = require('passport')
 
 // connected to db
 let sequelize = new Sequelize('Music', 'frostim007', null, {
@@ -55,7 +56,6 @@ app.delete('/', function(req, res)
     "Users",
     {
       UserId: {
-
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
@@ -67,6 +67,23 @@ app.delete('/', function(req, res)
       timestamps: false
     }
   );
+  passport.serializeUser((user,done)=> {
+    done(null,user._id);
+  });
+
+  passport.deserializeUser((id, done) => {
+    User.findAll(
+      {
+        where: {
+          userId: id
+        }
+      },
+      (err, user) => {
+        if (err || !user) return done(err, null);
+        done(null, user);
+      }
+    );
+  });
 
   Post.find({ where: { ArtistId: 75 } }).then(artists => {
     console.log(artists);
