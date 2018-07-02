@@ -107,5 +107,5 @@ app.delete('/author', (req, res) => {
   })
 db.close();
 module.exports = Post;
-module.exports = Users;
+module.exports = users;
 module.exports = router;
