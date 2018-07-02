@@ -6,14 +6,9 @@ let Sequelize = require('Sequelize');
 let app = require ('express');
 let passport = require('passport')
 let bodyParser = require ('body-parser')
+let authorId = require('./user')
 app.use(bodyParser.json());
 
-let Post =[
-  {ID: Int, AutoIncremented,
-    authorID: Int,
-    message: '',
-    timeStamp: true}
-]
 
 // connected to db
 let sequelize = new Sequelize('Music', 'frostim007', null, {
@@ -21,25 +16,27 @@ let sequelize = new Sequelize('Music', 'frostim007', null, {
     dialect: 'sqlite3',
     storage: './Chinook_Sqlite_AutoIncrementPKs.sqlite'
   });
+
 // CRUD
-app.post('/', function(req, res)
-{
-    res.send('you got it');
+app.post('/author', (req, res) => {
+  authorId.create(
+      {Name: req.body.id}
+  )
+  res.sendStatus(200)
 });
 
-app.get('/', function(req, res)
-{
-    res.send('you got it');
+user.get('/author', (req, res) => {
+  authorId.findAll().then(authorId =>{
+      res.json(authorId)
+  });
 });
 
-app.put('/', function(req, res)
-{
-    res.send('you got it');
+app.put('/author', (req, res) => {
+  res.json(authorId);
 });
 
-app.delete('/', function(req, res)
-{
-    res.send('you got it');
+app.delete('/author', (req, res) => {
+  res.json(authorId);
 });
 
 
@@ -48,8 +45,7 @@ app.delete('/', function(req, res)
   const Post = sequelize.define(
     "Post",
     {
-      PortId: {
-
+      authorId: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true

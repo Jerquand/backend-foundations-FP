@@ -3,7 +3,7 @@ let router = express.Router();
 let user = require('./user')
 
 
-// API CRUD
+// API 
 user.post('/users', (req, res) => {
     user.create(
         {Name: req.body.name}
@@ -27,32 +27,10 @@ user.get('/users/:id', (req, res) => {
     });
 });
 
-user.put('/users', function(req, res)
-{
-    res.send('you got it');
-});
-
-user.delete('/users', function(req, res)
-{
-    res.send('you got it');
-});
-
-let users =[
-    {ID: '',
-     firstName: '',
-     lastName: '',
-     username: '',
-     password: ''}
-]
-
-router.get('/users',(req,res)=> {
-    res.send(users);
-})
-
 router.post('/users',(req, res)=>{
     users.push(req.body);
     res.send(users);
-})
+});
 
 router.put('/',(req,res)=>{
     for(let i = 0; i , users.length; i++) {
@@ -65,6 +43,7 @@ router.put('/',(req,res)=>{
         }
     }
 
-})
+});
 
+module.exports = user;
 module.exports = router;
