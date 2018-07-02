@@ -6,9 +6,10 @@ let Sequelize = require('Sequelize');
 let app = require ('express');
 let passport = require('passport')
 let bodyParser = require ('body-parser')
-let authorId = require('./user')
-app.use(bodyParser.json());
+let authorId = require('./author')
 
+// Json
+app.use(bodyParser.json());
 
 // connected to db
 let sequelize = new Sequelize('Music', 'frostim007', null, {
@@ -31,12 +32,31 @@ user.get('/author', (req, res) => {
   });
 });
 
-app.put('/author', (req, res) => {
-  res.json(authorId);
+app.put('/author/:id', (req, res) => {
+  authorId.update(
+    {authorId:''},
+    {
+      where: {
+        authorId: req.params.id
+      }
+    })
+  .then(result =>{
+    res.send(result)
+  })
 });
 
 app.delete('/author', (req, res) => {
-  res.json(authorId);
+  authorId.find(
+    {
+      where: {
+        authorId: req.params.id
+      }
+  
+    }
+  ).then(authorId => {
+    authorId.destroy()
+    res.sendStatus(200)
+  })  
 });
 
 
@@ -93,7 +113,7 @@ app.delete('/author', (req, res) => {
     );
   });
 
-  Post.find({ where: { UserId: '' } }).then(User => {
+  Post.find({ where: { authorId: '' } }).then(User => {
     console.log(user);
   });
   User.find({ where: { UserId: '' } }).then(User => {
@@ -106,6 +126,6 @@ app.delete('/author', (req, res) => {
 
   })
 db.close();
-module.exports = Post;
+module.exports = authorId;
 module.exports = users;
 module.exports = router;
